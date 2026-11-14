@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Our Sky</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,600&family=DM+Sans:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<video id="bgVideo" src="img/background.mp4" autoplay muted loop playsinline></video>
+<div class="veil"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+<main>
+  <header>
+    <h1 id="title">Our Sky</h1>
+    <p class="sub" id="sub">Every moment with you is a star I never want to lose.</p>
+    <div class="counter" aria-label="Time together">
+      <div><b id="d">0</b><span>days</span></div>
+      <div><b id="h">0</b><span>hours</span></div>
+      <div><b id="m">0</b><span>minutes</span></div>
+      <div><b id="s">0</b><span>seconds</span></div>
+    </div>
+  </header>
+
+  <p class="hint">touch a star</p>
+  <section class="sky" id="sky" aria-label="Our memories as a constellation">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none"><polyline id="line"/></svg>
+  </section>
+
+  <article class="card" id="card" aria-live="polite">
+    <div class="photo" id="photo"></div>
+    <div class="text"><time id="cDate"></time><h2 id="cTitle"></h2><p id="cText"></p></div>
+  </article>
+
+  <section class="letter">
+    <h2 id="lTitle">A little letter</h2>
+    <p id="lBody"></p>
+  </section>
+  <footer id="foot"></footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
