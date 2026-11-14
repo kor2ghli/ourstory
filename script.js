@@ -54,12 +54,18 @@ function show(i){
   stars.forEach((s,j) => s.classList.toggle("on", i===j));
   $("cDate").textContent = m.date; $("cTitle").textContent = m.title; $("cText").textContent = m.text;
   const p = $("photo"); p.innerHTML = "";
-   if (m.video){
+  if (m.video){
     const v = document.createElement("video");
-    v.src = m.video; v.autoplay = true; v.loop = true; v.muted = true; v.playsInline = true;
-    if (m.photo) v.poster = m.photo;   // optional cover while the video loads
+    v.muted = true;
+    v.setAttribute("muted", "");
+    v.setAttribute("playsinline", "");
+    v.setAttribute("webkit-playsinline", "");
+    v.autoplay = true; v.loop = true; v.preload = "auto";
+    v.src = m.video;
+    if (m.photo) v.poster = m.photo;
     p.appendChild(v);
-    v.play().catch(() => {});
+    const go = v.play();
+    if (go) go.catch(() => { v.controls = true; });  // if the phone still blocks autoplay, show a play button
   } else if (m.photo){
     const im = new Image(); im.src = m.photo; im.alt = m.title; p.appendChild(im);
   } else p.textContent = "Your photo or video goes here";
